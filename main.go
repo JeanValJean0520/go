@@ -7,15 +7,18 @@ import (
 	"time"
 )
 
-func main() {
-	t := time.Now()
+func getTime() time.Time {
+	nowTime := time.Now()
+	return nowTime
+}
 
-	switch {
-	case t.Hour() < 12:
-		fmt.Println("goodBye")
-	case t.Hour() < 17:
-		fmt.Println("gooo")
-	default:
-		fmt.Println("de")
-	}
+func print(data string) {
+	fmt.Println(data)
+}
+
+func main() {
+	var timeData time.Time = getTime()
+	fmt.Println(timeData)
+
+	print("hello Man")
 }
