@@ -4,6 +4,8 @@ package main
 // import는 기본 패키지가 아닌 외부에 있는 다른 패키지를 포함 시키기 위해 필요하다.
 import (
 	"fmt"
+	"log"
+	"os"
 	"time"
 )
 
@@ -16,9 +18,18 @@ func print(data string) {
 	fmt.Println(data)
 }
 
-func main() {
-	var timeData time.Time = getTime()
-	fmt.Println(timeData)
+func repeat(repeat int) {
+	for index := 0; index < repeat; index++ {
+		fmt.Println(index)
+	}
+}
 
-	print("hello Man")
+func main() {
+	file, err := os.Open("./README.md")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	fmt.Println(file.Name())
 }
