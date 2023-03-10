@@ -6,8 +6,11 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sync"
 	"time"
 )
+
+var wg sync.WaitGroup
 
 func getTime() time.Time {
 	nowTime := time.Now()
